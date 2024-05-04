@@ -1,12 +1,9 @@
 import os
 from crewai import Agent, Task, Crew, Process
-# from crewai_tools import SerperDevTool
 from langchain.llms import Ollama
 
-# os.environ["OPENAI_API_KEY"] = "YOUR_API_KEY"
-# os.environ["SERPER_API_KEY"] = "Your Key" # serper.dev API key
 
-ollama_llm = Ollama(model="openhermes")
+openhermes_llm = Ollama(model="openhermes")
 mistral_llm = Ollama(model="mistral")
 # You can choose to use a local model through Ollama for example. See https://docs.crewai.com/how-to/LLM-Connections/ for more information.
 
@@ -41,7 +38,7 @@ researcher = Agent(
   verbose=True,
   allow_delegation=False,
   tools=[ducksearch],
-  llm=ollama_llm
+  llm=openhermes_llm
   # You can pass an optional llm attribute specifying what model you wanna use.
   # It can be a local model through Ollama / LM Studio or a remote
   # model like OpenAI, Mistral, Antrophic or others (https://docs.crewai.com/how-to/LLM-Connections/)
